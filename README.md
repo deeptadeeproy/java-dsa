@@ -1,18 +1,21 @@
-## Getting Started
+## Java DSA Practice
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This repository is a dedicated space for practicing and implementing core **Data Structures and Algorithms (DSA)** concepts using **Java**.
 
-## Folder Structure
+It serves as a personal workbook to:
 
-The workspace contains two folders by default, where:
+* **Build Foundational Understanding:** Implement classic data structures like Linked Lists, Stacks, Queues, and Trees from scratch.
+* **Master Key Algorithms:** Practice standard algorithms, including sorting (Merge Sort, Quick Sort), searching (Binary Search), and graph traversal (BFS, DFS).
+* **Solve Common Problems:** Store clean, categorized solutions to algorithmic problems often encountered in interviews and competitive programming.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+The goal is clarity, correctness, and a deep understanding of $\mathbf{O(n)}$ Time and Space Complexity.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+---
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### Key Areas Covered
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+| Category | Examples |
+| :--- | :--- |
+| **Data Structures** | Linked Lists, Binary Trees, HashMaps, Heaps |
+| **Algorithms** | Sorting, Searching, Recursion, Dynamic Programming |
+| **Problem Solving** | Solutions to problems from platforms like LeetCode and HackerRank |
