@@ -10,33 +10,28 @@ public class BinarySearch {
     }
 
     private static String findMe(int targetNumber, int[] sortedArray, int startIndex, int endIndex) {
-
-        if (startIndex > endIndex) {
-            return String.valueOf(-1);
+        // Validate indices
+        if (startIndex < 0 || endIndex >= sortedArray.length || startIndex > endIndex) {
+            return "-1";
         }
 
-        if (endIndex >= sortedArray.length) {
-            return String.valueOf(-1);
-        }
+        int left = startIndex;
+        int right = endIndex;
 
-        if (startIndex == endIndex) {
-            if (sortedArray[startIndex] == targetNumber) {
-                return ("Found " + targetNumber + " at index " + startIndex + ".");
+        while (left <= right) {
+            int middleIndex = (left + right) >>> 1; // Safe from integer overflow
+            int midValue = sortedArray[middleIndex];
+
+            if (midValue == targetNumber) {
+                return "Found " + targetNumber + " at index " + middleIndex + ".";
+            } else if (midValue > targetNumber) {
+                right = middleIndex - 1;
+            } else {
+                left = middleIndex + 1;
             }
-            return String.valueOf(-1);
         }
 
-        int middleIndex = (startIndex + endIndex) / 2;
-
-        if (sortedArray[middleIndex] == targetNumber) {
-            return ("Found " + targetNumber + " at index " + middleIndex + ".");
-        }
-        if (sortedArray[middleIndex] > targetNumber) {
-            return findMe(targetNumber, sortedArray, startIndex, middleIndex - 1);
-        }
-        if (sortedArray[middleIndex] < targetNumber) {
-            return findMe(targetNumber, sortedArray, middleIndex + 1, endIndex);
-        }
-        return String.valueOf(-1);
+        return "-1";
     }
+
 }
