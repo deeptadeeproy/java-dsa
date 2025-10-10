@@ -1,11 +1,11 @@
 public class BinarySearch {
     public static void main(String[] args) {
-        int target = 6;
+        int target = 10;
         int[] sortedArray = { 1, 3, 6, 10, 19, 32 };
 
         int start = 0;
         int end = sortedArray.length - 1;
-        
+
         System.out.println(findMe(target, sortedArray, start, end));
     }
 
@@ -14,6 +14,11 @@ public class BinarySearch {
         if (startIndex > endIndex) {
             return String.valueOf(-1);
         }
+
+        if (endIndex >= sortedArray.length) {
+            return String.valueOf(-1);
+        }
+
         if (startIndex == endIndex) {
             if (sortedArray[startIndex] == targetNumber) {
                 return ("Found " + targetNumber + " at index " + startIndex + ".");
@@ -21,16 +26,16 @@ public class BinarySearch {
             return String.valueOf(-1);
         }
 
-        int middleIndex = (int) Math.floor((startIndex + endIndex) / 2);
+        int middleIndex = (startIndex + endIndex) / 2;
 
         if (sortedArray[middleIndex] == targetNumber) {
             return ("Found " + targetNumber + " at index " + middleIndex + ".");
         }
         if (sortedArray[middleIndex] > targetNumber) {
-            findMe(targetNumber, sortedArray, startIndex, middleIndex - 1);
+            return findMe(targetNumber, sortedArray, startIndex, middleIndex - 1);
         }
         if (sortedArray[middleIndex] < targetNumber) {
-            findMe(targetNumber, sortedArray, middleIndex + 1, endIndex);
+            return findMe(targetNumber, sortedArray, middleIndex + 1, endIndex);
         }
         return String.valueOf(-1);
     }
