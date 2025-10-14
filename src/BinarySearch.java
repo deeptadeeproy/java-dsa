@@ -14,7 +14,7 @@ public class BinarySearch {
     private static String findMe(int targetNumber, int[] sortedArray, int startIndex, int endIndex) {
         // Validate input
         Objects.requireNonNull(sortedArray, "Array cannot be null");
-        
+
         // Validate indices
         if (startIndex < 0 || endIndex >= sortedArray.length || startIndex > endIndex) {
             return "-1";
@@ -23,16 +23,29 @@ public class BinarySearch {
         var left = startIndex;
         var right = endIndex;
 
+        // Determine if the array is sorted in ascending or descending order
+        boolean isAscending = sortedArray[left] < sortedArray[right];
+
         while (left <= right) {
-            int middleIndex = (left + right) >>> 1; // Safe from integer overflow
-            int midValue = sortedArray[middleIndex];
+            var middleIndex = (left + right) >>> 1; // Safe from integer overflow
+            var midValue = sortedArray[middleIndex];
 
             if (midValue == targetNumber) {
                 return "Found " + targetNumber + " at index " + middleIndex + ".";
-            } else if (midValue > targetNumber) {
-                right = middleIndex - 1;
+            }
+
+            if (isAscending) {
+                if (midValue > targetNumber) {
+                    right = middleIndex - 1;
+                } else {
+                    left = middleIndex + 1;
+                }
             } else {
-                left = middleIndex + 1;
+                if (midValue < targetNumber) {
+                    right = middleIndex - 1;
+                } else {
+                    left = middleIndex + 1;
+                }
             }
         }
 
